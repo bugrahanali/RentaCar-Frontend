@@ -1,7 +1,14 @@
-<ul class="list-group">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-    <li class="list-group-item">A fourth item</li>
-    <li class="list-group-item">And a fifth one</li>
-  </ul>
+<table  class="table">
+  <thead>
+    <tr>
+      <th>Customer Id</th>
+      <th>Customer Name</th>
+      
+    </tr>
+  </thead>
+  <tr *ngFor="let customer of customers">
+    <td>{{ customer.customerId }}</td>
+    <td>{{ customer.companyName }}</td>
+   
+  </tr>
+</table>

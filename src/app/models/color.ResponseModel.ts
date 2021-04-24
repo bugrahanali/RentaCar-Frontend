@@ -1,6 +1,6 @@
 import { Color } from "./color";
-import { ResponseModul } from "./responseModel";
+import { ResponseModel } from "./responseModel";
 
-export interface ColorResponseModel extends ResponseModul{
+export interface ColorResponseModel extends ResponseModel{
     data:Color[];
 }

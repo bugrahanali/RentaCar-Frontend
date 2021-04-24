@@ -1,7 +1,7 @@
 import { Car } from "./car";
-import { ResponseModul } from "./responseModel";
+import { ResponseModel } from "./responseModel";
 
- export interface CarResponseModul extends ResponseModul {
+ export interface CarResponseModel extends ResponseModel {
      data:Car[];
      
 

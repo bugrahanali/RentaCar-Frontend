@@ -25,6 +25,13 @@ export class CarComponent implements OnInit {
         this.getCars();
       }
     })
+    this.activatedRoute.params.subscribe(params => {
+      if (params['colorId']) {
+        this.getCarsDetailsByColorId(params['colorId']);
+      } else {
+        this.getCars();
+      }
+    })
   }
 
   getCars() {
@@ -41,4 +48,16 @@ export class CarComponent implements OnInit {
       this.dataLoaded = true;
     });
   }
+
+  getCarsDetailsByColorId(colorId:number) {
+    
+    this.carService.getCarsDetailsByColorId(colorId).subscribe((response) => {
+      this.cars = response.data;
+      this.dataLoaded = true;
+    });
+  }
+
+
+
+
 }

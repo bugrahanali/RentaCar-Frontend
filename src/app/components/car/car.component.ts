@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CarService } from 'src/app/services/car.service';
 import { CarDetails } from 'src/app/models/carDetails';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Car } from 'src/app/models/car';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-car',
@@ -11,11 +13,16 @@ import { ActivatedRoute } from '@angular/router';
 export class CarComponent implements OnInit {
   cars: CarDetails[] = [];
   dataLoaded = false;
+  currentCar : Car;
+  filterText:"";  
 
   constructor(
     private carService: CarService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private cartService:CartService
   ) {}
+
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -32,6 +39,7 @@ export class CarComponent implements OnInit {
         this.getCars();
       }
     })
+    
   }
 
   getCars() {
@@ -56,6 +64,15 @@ export class CarComponent implements OnInit {
       this.dataLoaded = true;
     });
   }
+  
+
+  
+
+  
+
+  
+
+  
 
 
 

@@ -14,10 +14,7 @@ export class BrandService {
   constructor(private htttpClient: HttpClient) { }
 
   getBrands():Observable<ListResponseModel<Brand>> {
-<<<<<<< HEAD
     
-=======
->>>>>>> b552ea1845d12f2ef2920fb97f64d7a71f7aed7c
     return this.htttpClient.get<ListResponseModel<Brand>>(this.apiUrl)
       
   }

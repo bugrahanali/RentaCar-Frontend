@@ -11,11 +11,16 @@ import { ColorService } from 'src/app/services/color.service';
 export class ColorComponent implements OnInit {
   colors: Color[] = [];
   currentColor: Color;
+<<<<<<< HEAD
   
+=======
+  dataLoaded = false;
+>>>>>>> b552ea1845d12f2ef2920fb97f64d7a71f7aed7c
 
   constructor(private colorService: ColorService, private router: Router) {}
 
   ngOnInit(): void {
+<<<<<<< HEAD
     this.getColors();
   }
 
@@ -23,6 +28,15 @@ export class ColorComponent implements OnInit {
     this.colorService.getColors().subscribe((response) => {
       this.colors = response.data;
      
+=======
+    this.getColor();
+  }
+
+  getColor() {
+    this.colorService.getCars().subscribe((response) => {
+      this.colors = response.data;
+      this.dataLoaded = true;
+>>>>>>> b552ea1845d12f2ef2920fb97f64d7a71f7aed7c
     });
   }
   setCurrentColor(color: Color) {

@@ -1,0 +1,21 @@
+<div *ngIf="dataLoaded==false" class="d-flex align-items-center">
+  <strong>Bir Saniye Lütfen...</strong>
+  <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+</div>
+
+<table *ngIf="dataLoaded==true"  class="table table-warning table-responsive-md table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Customer Id</th>
+      <th>Customer Name</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let customer of customers">
+    <td>{{ customer.customerId }}</td>
+    <td>{{ customer.companyName }}</td>
+   
+  </tr>
+</tbody>
+</table>

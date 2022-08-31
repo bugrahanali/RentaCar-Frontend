@@ -22,7 +22,9 @@
 <div *ngIf="dataLoaded == true"  class="row row-cols-1 row-cols-md-3 g-4">
   <div *ngFor="let car of cars | filterPipe: filterText" class="col">
     <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
+      <div class="d-flex" style="height: 70%">
+        <img [src]="getImagePath(car.imagePath)" class="card-img-top" />
+      </div>
       <div class="card-body">
         <h2><span>{{ car.carName }}</span></h2>
         <h5>Marka : {{ car.brandName | uppercase }}</h5>

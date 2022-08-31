@@ -32,5 +32,6 @@ export class CarService {
     let newPath = this.apiUrl + 'Cars/getbycarıd?carId=' + carId;
     return this.httpClient.get<ListResponseModel<CarDetails>>(newPath);
   }
+  
 
 }

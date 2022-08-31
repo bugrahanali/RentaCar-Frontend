@@ -5,6 +5,8 @@ import { CarDetails } from 'src/app/models/carDetails';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Car } from 'src/app/models/car';
 import { CartService } from 'src/app/services/cart.service';
+import { ImageService } from 'src/app/services/image.service';
+import { Image } from 'src/app/models/image';
 
 @Component({
   selector: 'app-car',
@@ -14,7 +16,10 @@ import { CartService } from 'src/app/services/cart.service';
 export class CarComponent implements OnInit {
   cars: CarDetails[] = [];
   dataLoaded = false;
+  images:Image[];
   currentCar : Car;
+
+  path="https://localhost:44379/"
   filterText:"";  
 
   constructor(
@@ -22,7 +27,8 @@ export class CarComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private cartService:CartService,
-    private toastrService:ToastrService
+    private toastrService:ToastrService,
+    private imageService:ImageService
   ) {}
 
 
@@ -68,9 +74,26 @@ export class CarComponent implements OnInit {
   }
   
   addToCart(car:CarDetails){
+    this.cartService.addToCart(car)
     this.toastrService.success("Sepete eklendi", car.carName)
     console.log(car)
 
+  }
+
+  getImages() {
+    this.imageService.getImages().subscribe((response) => {
+      this.images = response.data;
+    });
+  }
+
+  getImagePath(image: string) {
+    if (image) {
+      let newPath = this.path + image;
+      return newPath;
+    } else {
+      let defaultPath = this.path + '\\Images\\default.jpg';
+      return defaultPath;
+    }
   }
 
 

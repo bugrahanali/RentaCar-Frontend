@@ -18,23 +18,28 @@
   <strong>{{ filterText }} </strong> aradınız
 </div>
 
-
-<div *ngIf="dataLoaded == true"  class="row row-cols-1 row-cols-md-3 g-4">
+<div *ngIf="dataLoaded == true" class="row row-cols-1 row-cols-md-3 g-4">
   <div *ngFor="let car of cars | filterPipe: filterText" class="col">
     <div class="card h-100">
       <div class="d-flex" style="height: 70%">
         <img [src]="getImagePath(car.imagePath)" class="card-img-top" />
       </div>
       <div class="card-body">
-        <h2><span>{{ car.carName }}</span></h2>
-        <h5>Marka : {{ car.brandName | uppercase }}</h5>
+        <h2>
+          <span>{{ car.carName }}</span>
+        </h2>
         <h5>FİAT : {{ car.dailyPrice | vatAdded: 10 | currency }}$</h5>
-        <h5>Model : {{ car.modelYear }}</h5>
-        <h5>Renk: {{ car.colorName }}</h5>
-        <h5>Açıklma : {{ car.description }}</h5>
-        <body><div class="d-grid gap-5 d-md-auto">
-          <button (click)="addToCart(car)" type="button" class="btn btn-primary" type="button">Button</button> 
-        </div></body>
+        <div class="h-500 bg-light">
+          <button
+           (click)="setCurrentCar(car)"
+            routerLink="cardetail/{{ car.carId }}"
+            type="button"
+            class="getCarDetailsByCarId(car.carId)"
+            style="float: right"
+          >
+            Detayları Gör
+          </button>
+        </div>
       </div>
     </div>
   </div>

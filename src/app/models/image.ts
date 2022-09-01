@@ -1,6 +1,6 @@
 export interface Image {
-    Id: number;
+    id: number;
     carId: number;
     imagePath: string;
-    dateTime: Date;
+    date: Date;
   }

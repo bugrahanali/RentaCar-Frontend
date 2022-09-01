@@ -3,7 +3,6 @@ import { Brand } from './../../models/brand';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-brand',
   templateUrl: './brand.component.html',
@@ -12,35 +11,37 @@ import { Router } from '@angular/router';
 export class BrandComponent implements OnInit {
   brands: Brand[] = [];
   currentBrand: Brand;
-  
 
-  constructor(private brandService: BrandService, private router: Router) {}
+  constructor(
+    private brandService: BrandService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getBrands();
+    this.getallcars();
   }
 
   getBrands() {
     this.brandService.getBrands().subscribe((response) => {
       this.brands = response.data;
-      console.log(response.success)
-     
+      console.log(response.success);
     });
   }
   setCurrentBrand(brand: Brand) {
-   
-    if (this.currentBrand == brand) {
-      this.currentBrand = null;
-      this.router.navigate(['/cars']);
+    this.currentBrand = brand
+  }
+  getCurrentBrand(brand: Brand) {
+    if (brand == this.currentBrand) {
+      return 'list-group-item active';
     } else {
-      this.currentBrand = brand;
+      return 'list-group-item';
     }
   }
-  getCurrentBrand(brand:Brand){
-    if ( brand==this.currentBrand)  {
-      return "list-group-item active";
-    } else {
-      return "list-group-item"
-    }
+  getallcars() {
+    
+      this.router.navigate(['/cars']);
+      this.currentBrand=null;
+    
   }
 }

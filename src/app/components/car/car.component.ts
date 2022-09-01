@@ -96,5 +96,21 @@ export class CarComponent implements OnInit {
     }
   }
 
+  getCarDetailsByCarId(carId: number) {
+    this.carService.getCarDetailsByCarId(carId).subscribe((response) => {
+      this.cars = response.data;
+      this.dataLoaded = true;
+    });
+  }
+
+  setCurrentCar(car: Car) {
+   
+    if (this.currentCar == car) {
+      this.currentCar = null;
+      this.router.navigate(['cars']);
+    } else {
+      this.currentCar = car;
+    }
+  }
 
 }

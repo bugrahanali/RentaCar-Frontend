@@ -16,6 +16,7 @@ import { ImageService } from 'src/app/services/image.service';
 export class CarDetailComponent implements OnInit {
 
   carDetails: CarDetails;
+  path="https://localhost:44379/"
   dataLoaded=false;
   images:Image[];
   
@@ -32,6 +33,7 @@ export class CarDetailComponent implements OnInit {
       if (params['carId']) {
         this.getCarDetailsByCarId(params['carId']);
         this.getImagesByCarId(params['carId']);
+        
       }
     })
   }
@@ -47,7 +49,8 @@ export class CarDetailComponent implements OnInit {
   getImagesByCarId(carId: number) {
     this.imageService.getImagesByCarId(carId).subscribe((response) => {
       this.images = response.data;
-      this.dataLoaded = true;
+      
+      console.log(response.data)
     });
   }
 
@@ -59,8 +62,16 @@ export class CarDetailComponent implements OnInit {
       
       this.toastrService.success("Kiralanacak Arabalara Eklendi", carDetails.carName)
       this.cartService.addToCart(carDetails);
+    } 
+  }
+  getImages(image: string) {
+    if (image) {
+      let newPath = this.path + image;
+      return newPath;
+    } else {
+      let defaultPath = this.path + '\\Images\\default.jpg';
+      return defaultPath;
     }
-    
   }
   
 

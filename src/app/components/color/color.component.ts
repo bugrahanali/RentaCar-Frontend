@@ -26,12 +26,9 @@ export class ColorComponent implements OnInit {
     });
   }
   setCurrentColor(color: Color) {
-    if (this.currentColor == color) {
-      this.currentColor = null;
-      this.router.navigate(['/cars']);
-    } else {
+    
       this.currentColor = color;
-    }
+    
   }
   getCurrentColor(color:Color){
     if (this.currentColor === color)  {
@@ -40,4 +37,12 @@ export class ColorComponent implements OnInit {
       return "list-group-item"
     }
   }
+  getallcars() {
+    
+    this.router.navigate(['/cars']);
+    this.currentColor=null;
+  
+}
+  
+  
 }

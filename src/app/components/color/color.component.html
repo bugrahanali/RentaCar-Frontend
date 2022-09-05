@@ -20,7 +20,7 @@
     >
       <div class="accordion-body">
         <ul class="list-group">
-          <button (click)="getallcars()"> Tüm Markalar</button>
+          <button routerLink="/cars"> Tüm Renkler</button>
           <li
             (click)="setCurrentColor(color)"
             routerLink="/cars/color/{{ color.colorId }}"

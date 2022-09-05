@@ -1,48 +1,54 @@
-<div class="col-md-12">
+<div>
   <div
     id="carouselExampleControls"
     class="carousel slide"
     data-bs-ride="carousel"
   >
-    <div class="carousel-inner">
-      <div
-        *ngFor="let image of images;"
-        
-      >
+    <div class="carousel inner col-md-6 me-5" style="float: left">
+      <div *ngFor="let image of images">
         <img
-          src="https://localhost:44378\{{ image.carId }}"
-          class="d-block img-fluid img-thumbnail w-100"
+          width="800 px"
+          height="500 px"
+          src="https://localhost:44379\{{ image.imagePath }}"
+          class="d-block img-fluid img-thumbnail"
         />
       </div>
+      <br />
     </div>
-<div class="card-body">
-  <table class="table table-striped">
-    <tbody>
-      <tr>
-        <th scope="row">Araba Adı:</th>
-        <td>{{ carDetails?.carName }}</td>
-      </tr>
-      <tr>
-        <th scope="row">Markası:</th>
-        
-      </tr>
-      <tr>
-        <th scope="row">Modeli:</th>
-        <td>{{ carDetails?.modelYear }}</td>
-      </tr>
-      <tr>
-        <th scope="row">Rengi:</th>
-        <td>{{ carDetails?.colorName }}</td>
-      </tr>
+    <div class="col-md-5" style="float: right">
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th scope="row">Araba Adı:</th>
+            <td>{{ carDetails?.carName }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Markası:</th>
+            <td>{{ carDetails?.brandName }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Modeli:</th>
+            <td>{{ carDetails?.modelYear }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Rengi:</th>
+            <td>{{ carDetails?.colorName }}</td>
+          </tr>
 
-      <tr>
-        <th scope="row">Açıklama:</th>
-        <td>{{ carDetails?.description }}</td>
-      </tr>
-      <tr>
-        <th scope="row">Günlük Ücret:</th>
-        <td>{{ carDetails?.dailyPrice | currency: "₺" }}</td>
-      </tr>
-    </tbody>
-  </table>
-  <div>
+          <tr>
+            <th scope="row">Açıklama:</th>
+            <td>{{ carDetails?.description }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Günlük Ücret:</th>
+            <td>{{ carDetails?.dailyPrice | currency: "₺" }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <Button (click)="addToCart(carDetails)" type="button" class="btn btn-outline-secondary" style="float: left">
+        SEPETE EKLE
+      </Button>
+      <div></div>
+    </div>
+  </div>
+</div>

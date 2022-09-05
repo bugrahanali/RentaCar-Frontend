@@ -51,7 +51,6 @@ export class CarComponent implements OnInit {
     this.carService.getCars().subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
-      console.log(this.cars)
       
     });
   }
@@ -61,7 +60,7 @@ export class CarComponent implements OnInit {
     this.carService.getCarsDetailsByBrandId(brandId).subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
-      console.log(this.cars);
+      
     });
   }
 
@@ -76,7 +75,6 @@ export class CarComponent implements OnInit {
   addToCart(car:CarDetails){
     this.cartService.addToCart(car)
     this.toastrService.success("Sepete eklendi", car.carName)
-    console.log(car)
 
   }
 

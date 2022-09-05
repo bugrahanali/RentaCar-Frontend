@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,5 +10,5 @@ export class AppComponent {
    title = 'RentaCar';
   user=' Buğrahan'
 
- 
+  
 }

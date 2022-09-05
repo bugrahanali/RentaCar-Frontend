@@ -1,0 +1,36 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">Araba Ekle </h5></div>
+            <div class="card-body">
+                <form [formGroup]="carAddForm">
+                    <label for="carName">Araba adı</label>
+                    <div class="form-group">
+                        <input type="text" 
+                        id="carName" 
+                        formControlName="carName" class="form-control" 
+                        placeholder="Ürün adı"/>
+                    </div>
+                </form>
+                <form [formGroup]="carAddForm">
+                    <div class="form-group">
+                        <input type="number" 
+                        id="brandId" 
+                        formControlName="brandId" class="form-control" 
+                        placeholder="Marka ıd"/>
+                    </div>
+                </form>
+                <form [formGroup]="carAddForm">
+                    <div class="form-group">
+                        <input type="text" 
+                        id="dailyPrice" 
+                        formControlName="dailyPrice" class="form-control" 
+                        placeholder="Kira ücreti"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -20,7 +20,7 @@
     >
       <div class="accordion-body">
         <ul class="list-group">
-          <button (click)="getallcars()"> Tüm Markalar</button>
+          <button routerLink="/cars"> Tüm Markalar</button>
           <li
             (click)="setCurrentBrand(brand)"
             routerLink="/cars/brand/{{ brand.brandId }}"

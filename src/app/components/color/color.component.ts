@@ -11,7 +11,6 @@ import { ColorService } from 'src/app/services/color.service';
 export class ColorComponent implements OnInit {
   colors: Color[] = [];
   currentColor: Color;
-  
 
   constructor(private colorService: ColorService, private router: Router) {}
 
@@ -22,27 +21,17 @@ export class ColorComponent implements OnInit {
   getColors() {
     this.colorService.getColors().subscribe((response) => {
       this.colors = response.data;
-     
     });
   }
   setCurrentColor(color: Color) {
-    
-      this.currentColor = color;
-    
+    this.currentColor = color;
   }
-  getCurrentColor(color:Color){
-    if (this.currentColor === color)  {
-      return "list-group-item active";
+  getCurrentColor(color: Color) {
+    if (this.currentColor === color) {
+      return 'list-group-item active';
     } else {
-      return "list-group-item"
+      return 'list-group-item';
     }
   }
-  getallcars() {
-    
-    this.router.navigate(['/cars']);
-    this.currentColor=null;
-  
-}
-  
   
 }

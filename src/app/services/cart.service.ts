@@ -16,7 +16,6 @@ export class CartService {
     if(item){
       item.quantity+=1
     }else{
-      console.log(car);
       let cartItem = new CartItem();
       cartItem.car=car;
       cartItem.quantity=1;

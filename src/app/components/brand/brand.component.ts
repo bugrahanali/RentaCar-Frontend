@@ -19,13 +19,12 @@ export class BrandComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBrands();
-    this.getallcars();
+    
   }
 
   getBrands() {
     this.brandService.getBrands().subscribe((response) => {
       this.brands = response.data;
-      console.log(response.success);
     });
   }
   setCurrentBrand(brand: Brand) {
@@ -38,10 +37,5 @@ export class BrandComponent implements OnInit {
       return 'list-group-item';
     }
   }
-  getallcars() {
-    
-      this.router.navigate(['/cars']);
-      this.currentBrand=null;
-    
-  }
+  
 }

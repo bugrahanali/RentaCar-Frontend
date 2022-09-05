@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">RENT A CAR </a>
+    <a class="navbar-brand" href="/cars">RENT A CAR </a>
     <button
       class="navbar-toggler"
       type="button"
@@ -11,11 +11,11 @@
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button >
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <li routerLink="/cars/add"class="nav-item">
+          <button type="button" class="nav-link btn btn-outline-warning" aria-current="page" >ARABA EKLE</button>
         </li>
          <app-cart-summary> </app-cart-summary>
       </ul>

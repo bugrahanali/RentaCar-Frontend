@@ -8,61 +8,62 @@ import { CarService } from 'src/app/services/car.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ImageService } from 'src/app/services/image.service';
 
+
 @Component({
   selector: 'app-car-detail',
   templateUrl: './car-detail.component.html',
-  styleUrls: ['./car-detail.component.css']
+  styleUrls: ['./car-detail.component.css'],
 })
 export class CarDetailComponent implements OnInit {
-
   carDetails: CarDetails;
-  path="https://localhost:44379/"
-  dataLoaded=false;
-  images:Image[];
-  
+  path = 'https://localhost:44379/';
+  dataLoaded = false;
+  images: Image[];
 
-  constructor(private carService:CarService, 
-    private imageService:ImageService,
+  constructor(
+    private carService: CarService,
+    private imageService: ImageService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private toastrService:ToastrService,
-    private cartService:CartService) { }
+    private toastrService: ToastrService,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
+    this.activatedRoute.params.subscribe((params) => {
       if (params['carId']) {
         this.getCarDetailsByCarId(params['carId']);
         this.getImagesByCarId(params['carId']);
-        
       }
-    })
+    });
   }
-
 
   getCarDetailsByCarId(carId: number) {
     this.carService.getCarDetailsByCarId(carId).subscribe((response) => {
       this.carDetails = response.data[0];
       this.dataLoaded = true;
-    });
-  }
- 
-  getImagesByCarId(carId: number) {
-    this.imageService.getImagesByCarId(carId).subscribe((response) => {
-      this.images = response.data;
-      
-      console.log(response.data)
+      console.log(this.carDetails)
     });
   }
 
-  addToCart(carDetails:CarDetails){
-    if(carDetails.carId===1){
-     
-      this.toastrService.error("Hata", "bu ürün sepete eklenemez")
-    }else{
-      
-      this.toastrService.success("Kiralanacak Arabalara Eklendi", carDetails.carName)
+  getImagesByCarId(carId: number) {
+    this.imageService.getImagesByCarId(carId).subscribe((response) => {
+      this.images = response.data;
+
+      console.log(response.data);
+    });
+  }
+
+  addToCart(carDetails: CarDetails) {
+    if (carDetails.carId === 1) {
+      this.toastrService.error('Hata', 'bu ürün sepete eklenemez');
+    } else {
+      this.toastrService.success(
+        'Kiralanacak Arabalara Eklendi',
+        carDetails.carName
+      );
       this.cartService.addToCart(carDetails);
-    } 
+    }
   }
   getImages(image: string) {
     if (image) {
@@ -73,6 +74,4 @@ export class CarDetailComponent implements OnInit {
       return defaultPath;
     }
   }
-  
-
 }

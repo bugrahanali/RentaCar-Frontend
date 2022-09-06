@@ -1,3 +1,5 @@
+import { ToastrService } from 'ngx-toastr';
+import { CarService } from 'src/app/services/car.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,FormBuilder,Validator, Validators } from '@angular/forms';
 
@@ -9,7 +11,7 @@ import { FormControl,FormGroup,FormBuilder,Validator, Validators } from '@angula
 export class CarAddComponent implements OnInit {
 
   carAddForm :FormGroup;
-  constructor(private formBuilder:FormBuilder) { }
+  constructor(private formBuilder:FormBuilder, private carService:CarService,private toasterService:ToastrService) { }
 
   ngOnInit(): void {
     this.createCarAddForm();
@@ -27,4 +29,17 @@ export class CarAddComponent implements OnInit {
     })
   }
 
+  add(){
+    try{
+      let carModel = Object.assign({}, this.carAddForm.value)
+      this.carService.add(carModel).subscribe(response=>{
+        this.toasterService.success(response.message,"Başarılı")
+      })
+      
+    }catch(error){
+      this.toasterService.error("Lütfen eksikleri doldurunuz")
+
+    }
+    
+  }
 }

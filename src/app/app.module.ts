@@ -24,6 +24,8 @@ import{ToastrModule} from "ngx-toastr";
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { LoginComponent } from './components/login/login.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { LoginComponent } from './components/login/login.component';
     FilterPipePipe,
     CartSummaryComponent,
     CarAddComponent,
-    LoginComponent
+    LoginComponent,
+    CheckoutComponent,
+    
   ],
   imports: [
     BrowserAnimationsModule,

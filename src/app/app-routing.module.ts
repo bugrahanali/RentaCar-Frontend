@@ -1,3 +1,4 @@
+import { CheckoutComponent } from './components/checkout/checkout.component';
 import { LoginGuard } from './guards/login.guard';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { NgModule } from '@angular/core';
@@ -14,7 +15,10 @@ const routes: Routes = [
   {path:"cars/color/:colorId",component:CarComponent},
   {path:"cars/cardetail/:carId",component:CarDetailComponent},
   {path:"cardetail/:carId",component:CarDetailComponent},
-  {path:"login",component:LoginComponent}
+  {path:"login",component:LoginComponent},
+  {path:"cars/checkout/:carId",component:CheckoutComponent},
+
+  
   
 ];
 

@@ -55,15 +55,13 @@ export class CarDetailComponent implements OnInit {
   }
 
   addToCart(carDetails: CarDetails) {
-    if (carDetails.carId === 1) {
-      this.toastrService.error('Hata', 'bu ürün sepete eklenemez');
-    } else {
+   
       this.toastrService.success(
         'Kiralanacak Arabalara Eklendi',
         carDetails.carName
       );
       this.cartService.addToCart(carDetails);
-    }
+    
   }
   getImages(image: string) {
     if (image) {

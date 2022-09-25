@@ -7,7 +7,11 @@ import { Image } from 'src/app/models/image';
 import { CarService } from 'src/app/services/car.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ImageService } from 'src/app/services/image.service';
-
+import {
+  MatDateRangeInput,
+  MatCalendarCellCssClasses,
+  MatDateRangePicker,
+} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-car-detail',

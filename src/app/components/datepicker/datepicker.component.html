@@ -1,0 +1,19 @@
+<form class="datepicker" [formGroup]="form">
+  <mat-form-field color="black" appearance="fill">
+    <mat-date-range-input
+      [rangePicker]="picker"
+      [comparisonStart]="comparisonStart"
+      [comparisonEnd]="comparisonEnd"
+      [dateFilter]="unavailableDays"
+      formGroupName="daterange"
+    >
+      <input matStartDate placeholder="Start date" formControlName="start" />
+      <input matEndDate placeholder="End date" formControlName="end" />
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+    
+  </mat-form-field>
+  
+  <button (click)="onSubmit()" class="button-24" role="button"><span class="text">Arabaları Getir</span></button>
+</form>

@@ -1,12 +1,9 @@
-<div class="container">
+<div class="detailpage">  <div class="container">
   <app-navi></app-navi>
   <div class="row">
-    <div class="col-md-3">
-      <app-brand></app-brand>
-      <app-color></app-color>
-    </div>
+    
 
-    <div class="col-md-9">
+    <div class="col-md-12">
       <div
         id="carouselExampleControls"
         class="carousel slide"
@@ -54,12 +51,12 @@
             </tbody>
           </table>
           <Button
-            (click)="addToCart(carDetails)"
+            routerLink="/cars/checkout/{{carDetails.carId}}"
             type="button"
             class="btn btn-outline-secondary"
             style="float: left"
           >
-            SEPETE EKLE
+            HEMEN KİRALA
           </Button>
           <div></div>
         </div>
@@ -67,3 +64,6 @@
     </div>
   </div>
 </div>
+</div>
+<h5>tarih</h5>
+

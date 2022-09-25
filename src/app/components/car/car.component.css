@@ -1,1 +1,5 @@
-.container{background-color: rgb(172, 126, 233);}
+.carpage{background-color: rgb(205, 201, 206);}
+.carpage{
+    min-width: 830px;
+    min-height: 900px;
+}
